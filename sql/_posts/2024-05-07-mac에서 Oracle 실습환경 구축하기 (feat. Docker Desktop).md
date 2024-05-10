@@ -121,19 +121,19 @@ docker exec -it oracle9 sqlplus
 ~~~bash
 docker run -d -p 1521:1521 -it --name oracle19 -e ORACLE_SID={your SID} -e ORACLE_PWD=pass {image_number}
 ~~~
-만약 ORACLE_SID 를 설정하지 않았다면, 아래와 같은 에러가 나타나게 됩니다. Oracle 데이터베이스 서버의 시스템 식별자인데, 따로 설정을 안해주면 연결이 안되는 것을 확인했습니다. 
 
 저는 ORACLE_SID=ORCLCDB, ORACLE_PWD=pass 로 설정했습니다.
     
-![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/7.png "터미널 사진3")   
-    
-
-
 
 * 컨테이너 내부 진입 (ID : system, PW : pass)
 ~~~bash
 docker exec -it oracle19 sqlplus
 ~~~
+
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/7.png "터미널 사진3")
+
+컨테이너를 띄우고 바로 들어가면, 아래와 같은 메시지가 나옵니다. 이는 ORACLE이 아직 initialization을 하고 있다는 의미로, 초기 세팅이 진행되고 있는데 접속을 시도해서 나오는 에러입니다.
+
 ![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/8.png "터미널 사진4")     
 
 컨테이너 로그로 들어가셔서 구축이 완료되면 그 때 sqlplus로 다시 접속해보세요!
