@@ -92,11 +92,14 @@ docker exec -it oracle9 sqlplus
 
 
 * github repo를 clone 합니다.
+
 ![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/3.png "github 레포사진")    
 
 
 
 * [Oracle 홈페이지](https://www.oracle.com/database/technologies/oracle19c-linux-arm64-downloads.html)에서 LINUX._ARM64_1919000_db_home.zip을 다운로드 받습니다. Oracle 계정을 생성해야 합니다.
+
+
 ![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/4.png "Oracle 홈페이지")   
 
 
@@ -112,6 +115,7 @@ docker exec -it oracle9 sqlplus
 ~~~bash
 ./buildContainerImage.sh -v 19.3.0 -e
 ~~~
+
 ![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/6.png "터미널 사진2")   
    
 
