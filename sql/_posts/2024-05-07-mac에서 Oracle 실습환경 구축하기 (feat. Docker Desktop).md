@@ -188,8 +188,6 @@ docker exec -it oracle19 sqlplus
 
 OT. 라는 string을 일괄적으로 빈 스페이스로 모두 바꿔주신 후 sqlplus에서 실행하면, 데이터를 모두 제대로 넣을 수 있습니다. (현재 로컬 DB에는 OT라는 테이블 스페이스가 없기 때문에 바꿔줘야 합니다!)
 
-![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/15.png "테이블 정보 5")
-
 축하합니다! DB 구축과 테이블 설정 및 데이터 삽입까지 모두 완료했습니다!
 
 ## 참고한 글과 문서
