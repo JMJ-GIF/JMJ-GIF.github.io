@@ -48,8 +48,13 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title: SQL
-    url: /sql/
+  - title: DATABASE
+    url: /database/
+    submenu:
+      - title: SQL
+        url: /sql/
+  - title: ABOUT
+    url: /about/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -129,10 +134,10 @@ defaults:
       sitemap: false
 
   # # You can use the following to enable comments on all posts.
-  # - scope:
-  #     type:            posts
-  #   values:
-  #     comments:        true
+  - scope:
+      type: posts
+    values:
+      comments: true
 
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
