@@ -3,14 +3,14 @@
 layout: list
 
 # The title of the tag's page.
-title: DATABASE
+title: Contents
 
 # The name of the tag, used in a post's front matter (e.g. tags: [<slug>]).
-slug: database
+slug: contents
 
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
-  데이터 베이스와 관련된 글을 씁니다.
+   공부했던 내용들에 대해 하나씩 적습니다.
 
 # (Optional) You can disable grouping posts by date.
 # no_groups: true

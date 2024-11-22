@@ -48,12 +48,9 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title: DATABASE
-    url: /database/
-    submenu:
-      - title: SQL
-        url: /sql/
-  - title: ABOUT
+  - title: Contents
+    url: /contents/
+  - title: About
     url: /about/
 
 # Add links to the footer.
@@ -79,7 +76,7 @@ paginate_path: /:num/
 # Theme
 # ---------------------------------------------------------------------------------------
 
-#theme: jekyll-theme-hydejack
+# theme: jekyll-theme-hydejack
 remote_theme: hydecorp/hydejack@v9
 
 # Customizaton

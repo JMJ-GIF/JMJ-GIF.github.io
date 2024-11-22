@@ -2,8 +2,7 @@
 layout: post
 title: mac에서 Oracle 실습환경 구축하기 (feat. Docker Desktop)
 categories: 
-  - database
-  - sql
+  - contents
 sitemap: false
 hide_last_modified: true
 related_posts:
@@ -63,7 +62,7 @@ docker version
 ### 첫 번째 시도
 가장 먼저 oracle 공식 이미지가 있는지 찾아보았습니다.
   
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/1.png "Oracle 공식 이미지")
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/1.png "Oracle 공식 이미지")
 
 공식 이미지가 있었고, version 9 까지 지원을 하고 있어 우선적으로 간단하게 해당 이미지를 다운받아 보았습니다. 
 
@@ -81,7 +80,7 @@ docker run -d -p 1521:1521 --name oracle9 --platform=linux/arm64/v8 -it oracleli
 docker exec -it oracle9 sqlplus
 ~~~
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/2.png "터미널 사진")
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/2.png "터미널 사진")
 
 그런데 sqlplus Command가 아예 존재하지 않았습니다. `/bin` 경로 내에 sqlplus가 설치되지 않았고, 다른 버전의 이미지들도 마찬가지여서 다른 방법으로 설치를 해야겠다고 생각했습니다.
 
@@ -95,21 +94,21 @@ docker exec -it oracle9 sqlplus
 
 * github repo를 clone 합니다.
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/3.png "github 레포사진")    
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/3.png "github 레포사진")    
 
 
 
 * [Oracle 홈페이지](https://www.oracle.com/database/technologies/oracle19c-linux-arm64-downloads.html)에서 LINUX._ARM64_1919000_db_home.zip을 다운로드 받습니다. Oracle 계정을 생성해야 합니다.
 
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/4.png "Oracle 홈페이지")   
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/4.png "Oracle 홈페이지")   
 
 
 
 * 다운로드 받은 파일을 아래의 경로에 위치시킵니다.
    * `./docker-images/OracleDatabase/SingleInstance/dockerfiles/19.3.0` 이때 file name은 `LINUX._ARM64_1919000_db_home.zip` 입니다.
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/5.png "19.3.0")   
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/5.png "19.3.0")   
    
 
 
@@ -118,7 +117,7 @@ docker exec -it oracle9 sqlplus
 ./buildContainerImage.sh -v 19.3.0 -e
 ~~~
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/6.png "터미널 사진2")   
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/6.png "터미널 사진2")   
    
 
 
@@ -136,15 +135,15 @@ docker run -d -p 1521:1521 -it --name oracle19 -e ORACLE_SID={your SID} -e ORACL
 docker exec -it oracle19 sqlplus
 ~~~
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/7.png "터미널 사진3")
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/7.png "터미널 사진3")
 
 컨테이너를 띄우고 바로 들어가면, 아래와 같은 메시지가 나옵니다. 이는 ORACLE이 아직 initialization을 하고 있다는 의미로, 초기 세팅이 진행되고 있는데 접속을 시도해서 나오는 에러입니다.
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/8.png "터미널 사진4")     
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/8.png "터미널 사진4")     
 
 컨테이너 로그로 들어가셔서 구축이 완료되면 그 때 sqlplus로 다시 접속해보세요!
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/9.png "Docker Desktop")    
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/9.png "Docker Desktop")    
 
 이후 DATABASE IS READY TO USE! 가 뜨면 완료입니다!
 
@@ -153,7 +152,7 @@ docker exec -it oracle19 sqlplus
 ## DBeaver에 연결하기
 DBeaver 버전23.0.1  기준
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/10.png "DBEAVER")
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/10.png "DBEAVER")
 
 Database 에는 설정한 ORACLE_SID 를 입력해줍니다. 저같은 경우, ORACLCDB 로 설정했어서 해당 정보를 입력해주었습니다.
 
@@ -168,14 +167,14 @@ DBeaver에 무사히 연결을 하셨다면, 이제 테이블을 구축할 차�
 
 다행히도, Oracle 에서는 실습을 위한 테이블들을 다수 제공하고 있습니다. [Oracle 실습 테이블 구축 홈페이지](https://www.oracletutorial.com/getting-started/oracle-sample-database/) 에서 해당 내용들을 확인할 수 있습니다.
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/11.png "테이블 스키마")
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/11.png "테이블 스키마")
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/12.png "테이블 정보 2")
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/12.png "테이블 정보 2")
 
 
 링크를 타고 들어간 이후, Sample Database 파일을 다운로드 받으면 총 4개의 파일을 확인할 수 있습니다.
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/13.png "테이블 정보 3")
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/13.png "테이블 정보 3")
 
 이후, 도커로 sqlplus에 접속하고
 ~~~bash
@@ -186,11 +185,11 @@ docker exec -it oracle19 sqlplus
 
 이후 ot_data.sql을 열어서
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/14.png "테이블 정보 4")
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/14.png "테이블 정보 4")
 
 OT. 라는 string을 일괄적으로 빈 스페이스로 모두 바꿔주신 후 sqlplus에서 실행하면, 데이터를 모두 제대로 넣을 수 있습니다. (현재 로컬 DB에는 OT라는 테이블 스페이스가 없기 때문에 바꿔줘야 합니다!)
 
-![800x400](../../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/15.png "테이블 정보 15")
+![800x400](../../assets/img/post_img/mac에서%20Oracle%20실습환경%20구축하기%20(feat.%20Docker%20Desktop)/15.png "테이블 정보 15")
 
 축하합니다! DB 구축과 테이블 설정 및 데이터 삽입까지 모두 완료했습니다!
 
